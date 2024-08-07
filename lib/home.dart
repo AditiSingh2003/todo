@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(
         onPressed: (){
           showDialog(context: context, builder: (context){
@@ -53,13 +53,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   TextField(
                     controller: controller1,
-                    cursorColor: Theme.of(context).colorScheme.secondary,
+                    cursorColor:  Colors.lightGreen,
                     decoration: InputDecoration(
                       hintText: 'Task Title...',
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: Theme.of(context).colorScheme.secondary,
+                          color: Colors.lightGreen,
                         )
                       ),
                       border: OutlineInputBorder(
@@ -73,13 +73,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height:10),
                   TextField(
                     controller: controller2,
-                    cursorColor: Theme.of(context).colorScheme.secondary,
+                    cursorColor: Colors.lightGreen,
                     decoration: InputDecoration(
                       hintText: 'Task DEscription...',
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: Theme.of(context).colorScheme.secondary,
+                          color: Colors.lightGreen,
                         )
                       ),
                       border: OutlineInputBorder(
@@ -107,8 +107,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     style: TextButton.styleFrom(
                       shape: RoundedRectangleBorder(
-                        side: BorderSide(color: Theme.of(context).colorScheme.secondary,),),
-                        foregroundColor: Theme.of(context).colorScheme.secondary,
+                        side: BorderSide(color: Colors.lightGreen,),),
+                        foregroundColor: Colors.lightGreen
+                        ,
                       ),
 
                       child: SizedBox(
@@ -124,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           });
         },
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Color(0xFF569DAA),
         child: const Icon(
           Icons.add,
           color: Colors.black,
@@ -132,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
 
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.primary,
+          backgroundColor: Color(0xFF569DAA),
           elevation: 0,
           title: const Text(
             'My ToDo App',
@@ -151,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemCount: state.todos.length,
                     itemBuilder: (context, int i){
                       return Card(
-                        color: Theme.of(context).colorScheme.primary,
+                        color: Color(0xFF569DAA),
                         elevation: 1,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                         child: Slidable(
@@ -178,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             trailing: Checkbox(
                               value: state.todos[i].isDone,
-                              activeColor: Theme.of(context).colorScheme.secondary,
+                              activeColor: Colors.lightGreen,
                               onChanged: (value){
                                 alertTodo(i);
                               },

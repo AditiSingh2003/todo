@@ -24,16 +24,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Todo App',
-      theme: ThemeData(
-        colorScheme: const ColorScheme.light(
-          background: Colors.white,
-          onBackground: Colors.black,
-          primary: Color(0xFF569DAA),
-          onPrimary: Colors.black,
-          secondary: Colors.lightGreen,
-          onSecondary: Colors.white
-        ),
-      ),
+      // theme: ThemeData(
+      //   colorScheme: const ColorScheme.light(
+      //     background: Colors.white,
+      //     onBackground: Colors.black,
+      //     primary: Color(0xFF569DAA),
+      //     onPrimary: Colors.black,
+      //     secondary: Colors.lightGreen,
+      //     onSecondary: Colors.white
+      //   ),
+      // ),
       home: BlocProvider<TodoBloc>(
         create: (context) => TodoBloc()..add(TodoStarted()),
         child:const HomeScreen(),
