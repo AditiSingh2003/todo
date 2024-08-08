@@ -1,7 +1,7 @@
-class Todo{
+class Todo {
   final String title;
   final String description;
-  bool isDone;
+  final bool isDone;
 
   Todo({
     required this.title,
@@ -35,13 +35,5 @@ class Todo{
       'description': description,
       'isDone': isDone,
     };
-  }
-  @override
-  String toString() {
-    return '''Todo:{
-    title: $title\n
-    description: $description\n
-    isDone: $isDone\n
-    }''';
   }
 }

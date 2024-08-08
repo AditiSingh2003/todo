@@ -2,7 +2,7 @@ part of 'todo_bloc.dart';
 
 enum TodoStatus { initial, loading, success, error }
 
-class TodoState extends Equatable{
+class TodoState extends Equatable {
   final List<Todo> todos;
   final TodoStatus status;
 
@@ -21,24 +21,26 @@ class TodoState extends Equatable{
     );
   }
 
-  @override
   factory TodoState.fromJson(Map<String, dynamic> json) {
-    try{
-      var listOfTodos = (json['todo'] as List<dynamic>)
-      .map((e) => Todo.fromJson(e as Map<String, dynamic>))
-      .toList();
+    try {
+      var listOfTodos = (json['todos'] as List)
+          .map((e) => Todo.fromJson(e as Map<String, dynamic>))
+          .toList();
 
       return TodoState(
         todos: listOfTodos,
-        status: TodoStatus.values.firstWhere((element) => element.name.toString() == json['status'],),
+        status: TodoStatus.values.firstWhere(
+          (element) => element.name == json['status'],
+        ),
       );
-      }catch(e){
-        rethrow;
-      }
+    } catch (e) {
+      rethrow;
     }
+  }
+
   Map<String, dynamic> toJson() {
     return {
-      'todos': todos,
+      'todos': todos.map((todo) => todo.toJson()).toList(),
       'status': status.name,
     };
   }
