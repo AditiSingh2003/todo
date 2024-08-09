@@ -64,13 +64,14 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   bool _isFormValid() {
-    return controller1.text.isNotEmpty && controller2.text.isNotEmpty;
+    return controller1.text.isNotEmpty;  // Validation only on task title
   }
 
   void _updateFormState() {
     setState(() {});
   }
 
+  //Completed Task Dialogbox
   void _showCompletedTasks(BuildContext context, List<Todo> todos) {
     showDialog(
       context: context,
@@ -135,6 +136,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
+
+      // add task pop menu 
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showDialog(
@@ -178,6 +181,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
+
+                //adding functionality to the button
                 actions: [
                   Padding(
                     padding: EdgeInsets.all(15.0),
@@ -246,6 +251,8 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             Expanded(
+              
+              //bloc builer
               child: BlocBuilder<TodoBloc, TodoState>(
                 builder: (context, state) {
                   if (state.status == TodoStatus.success) {

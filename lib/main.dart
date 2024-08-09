@@ -24,16 +24,6 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Todo App',
-        // theme: ThemeData(
-        //   colorScheme: const ColorScheme.light(
-        //     background: Colors.white,
-        //     onBackground: Colors.black,
-        //     primary: Color(0xFF569DAA),
-        //     onPrimary: Colors.black,
-        //     secondary: Colors.lightGreen,
-        //     onSecondary: Colors.white,
-        //   ),
-        // ),
         home: const HomeScreen(),
       ),
     );
